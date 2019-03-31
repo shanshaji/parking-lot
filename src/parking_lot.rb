@@ -4,6 +4,8 @@ require_relative './park'
 require_relative './find_free_slot'
 require_relative './unpark'
 require_relative './print_status'
+require_relative './find_car_by_color'
+require_relative './find_car_by_number'
 class ParkingLot
 
   attr_accessor :slots
@@ -35,6 +37,19 @@ class ParkingLot
     PrintStatus.new(slots)
   end
 
+  def registration_numbers_for_cars_with_colour (color)
+    FindCarByColor.new.find_registration_number color, slots
+  end
+
+  def slot_numbers_for_cars_with_colour (color)
+    FindCarByColor.new.find_slot_number color, slots
+  end
+
+  def slot_number_for_registration_number (vehicle_number)
+    FindCarByNumber.new(slots).find_slot vehicle_number
+  end
+
+
   private
 
   def parking_lot_full_handler
@@ -50,3 +65,12 @@ p.park("KA-02-HH-3434", "Red")
 p.park("KA-02-HH-1434", "White")
 p.leave(3)
 p.status
+p.registration_numbers_for_cars_with_colour("Black")
+p.registration_numbers_for_cars_with_colour("White")
+p.registration_numbers_for_cars_with_colour("Red")
+p.slot_numbers_for_cars_with_colour("Black")
+p.slot_numbers_for_cars_with_colour("Red")
+p.slot_number_for_registration_number("KA-01-HH-1234")
+p.slot_number_for_registration_number("KA-01-HH-123")
+
+
