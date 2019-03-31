@@ -30,11 +30,11 @@ class ParkingLot
   end
 
   def leave(slot_number)
-    Unpark.new(slots, slot_number)
+    Unpark.new(slots, slot_number).unpark
   end
 
   def status
-    PrintStatus.new(slots)
+    PrintStatus.new(slots).print_status
   end
 
   def registration_numbers_for_cars_with_colour (color)
@@ -72,5 +72,10 @@ p.slot_numbers_for_cars_with_colour("Black")
 p.slot_numbers_for_cars_with_colour("Red")
 p.slot_number_for_registration_number("KA-01-HH-1234")
 p.slot_number_for_registration_number("KA-01-HH-123")
+p.slot_numbers_for_cars_with_colour("Red")
+p.park("KA-01-HH-1734", "White")
+p.park("KA-01-HH-1434", "Orange")
+p.status
+p.park("KA-01-HH-1434", "Green")
 
 
