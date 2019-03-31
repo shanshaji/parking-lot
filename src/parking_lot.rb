@@ -2,6 +2,8 @@
 require_relative './slots'
 require_relative './park'
 require_relative './find_free_slot'
+require_relative './unpark'
+require_relative './print_status'
 class ParkingLot
 
   attr_accessor :slots
@@ -25,6 +27,14 @@ class ParkingLot
     end
   end
 
+  def leave(slot_number)
+    Unpark.new(slots, slot_number)
+  end
+
+  def status
+    PrintStatus.new(slots)
+  end
+
   private
 
   def parking_lot_full_handler
@@ -35,4 +45,8 @@ end
 
 p =ParkingLot.new(6)
 p.park("KA-01-HH-1234", "White")
-
+p.park("KA-02-HH-6534", "Black")
+p.park("KA-02-HH-3434", "Red")
+p.park("KA-02-HH-1434", "White")
+p.leave(3)
+p.status

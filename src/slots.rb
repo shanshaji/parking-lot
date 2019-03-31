@@ -17,7 +17,19 @@ class Slot
     end
   end
 
+  def free
+    self.vehicle = nil
+  end
+
   def free?
     self.vehicle == nil
+  end
+
+  def vehicle_number
+    vehicle.vehicle_number if vehicle
+  end
+
+  def vehicle_color
+    vehicle.vehicle_color if vehicle
   end
 end
