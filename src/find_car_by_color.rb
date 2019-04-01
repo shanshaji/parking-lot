@@ -16,7 +16,7 @@ class FindCarByColor
 		if filtered_cars.compact.empty?
 			puts "No Car Found"
 		else
-    		puts filtered_cars.compact.join(',')
+    		puts filtered_cars.compact.join(', ')
     	end
 	end
 end

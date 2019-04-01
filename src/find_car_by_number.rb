@@ -8,6 +8,6 @@ class FindCarByNumber
 		slot = @slots.find do |slot|
 	      slot.vehicle_number == vehicle_number
 	    end
-	    puts slot ? slot.id : 'Not Found'
+	    puts slot ? slot.id : 'Not found'
 	end
 end

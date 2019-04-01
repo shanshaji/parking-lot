@@ -6,7 +6,7 @@ require_relative './unpark'
 require_relative './print_status'
 require_relative './find_car_by_color'
 require_relative './find_car_by_number'
-class ParkingLot
+class ParkingSpace
 
   attr_accessor :slots
   PARKING_FULL_MESSAGE = 'Sorry, parking lot is full'
@@ -53,29 +53,7 @@ class ParkingLot
   private
 
   def parking_lot_full_handler
-    puts ParkingLot::PARKING_FULL_MESSAGE
+    puts ParkingSpace::PARKING_FULL_MESSAGE
   end
 
 end
-
-p =ParkingLot.new(6)
-p.park("KA-01-HH-1234", "White")
-p.park("KA-02-HH-6534", "Black")
-p.park("KA-02-HH-3434", "Red")
-p.park("KA-02-HH-1434", "White")
-p.leave(3)
-p.status
-p.registration_numbers_for_cars_with_colour("Black")
-p.registration_numbers_for_cars_with_colour("White")
-p.registration_numbers_for_cars_with_colour("Red")
-p.slot_numbers_for_cars_with_colour("Black")
-p.slot_numbers_for_cars_with_colour("Red")
-p.slot_number_for_registration_number("KA-01-HH-1234")
-p.slot_number_for_registration_number("KA-01-HH-123")
-p.slot_numbers_for_cars_with_colour("Red")
-p.park("KA-01-HH-1734", "White")
-p.park("KA-01-HH-1434", "Orange")
-p.status
-p.park("KA-01-HH-1434", "Green")
-
-
