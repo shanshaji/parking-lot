@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 require_relative './../src/parking_space'
-require 'rspec'
-require 'byebug'
 class ParkingLot
 
     def get_input
