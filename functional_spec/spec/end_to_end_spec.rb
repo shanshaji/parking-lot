@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'byebug'
 RSpec.describe 'End To End Suite' do
   describe "full scenarios" do
     let(:commands) do
