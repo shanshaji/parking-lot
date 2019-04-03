@@ -5,8 +5,7 @@ class ParkingLot
     def get_input
 	  if (ARGV.length == 0)
 	  	 p "Enter commands followed by '\n'"
-	     input = gets.chomp
-	     input = input.gsub("\\n","\n")
+	     input = gets.gsub("\\n","\n").chomp
 	  else
 	    begin
 	      input = File.read(ARGV[0])
