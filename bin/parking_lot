@@ -4,7 +4,9 @@ class ParkingLot
 
     def get_input
 	  if (ARGV.length == 0)
-	     input = ARGF.gets
+	  	 p "Enter commands followed by '\n'"
+	     input = gets.chomp
+	     input = input.gsub("\\n","\n")
 	  else
 	    begin
 	      input = File.read(ARGV[0])
@@ -16,7 +18,7 @@ class ParkingLot
 	  begin
 	    process_commands(input)
 	  rescue StandardError => file
-	  puts "Error processing input. Error - #{ file }"
+	  	puts "Error processing input. Error - #{ file }"
 	  end
 	end
 

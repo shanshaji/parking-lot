@@ -1,7 +1,12 @@
-# Add script to:
-# * Install dependencies
-# * Build/Compile
-# * Run Test Suit to validate
-#
-# After this is run, bin/parking_lot
-# should Just Work.
+#!/usr/bin/env ruby
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'byebug'
+  gem 'rspec'
+  gem 'bundler'
+  gem 'rake', '~> 10.0'
+end
+
+puts 'Gems installed and loaded!'
