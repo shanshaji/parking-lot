@@ -1,4 +1,4 @@
-require_relative './filter_cars'
+require_relative '../filters/filter_cars'
 class FindCarByColor
 	def find_registration_number color, slots
 		filtered_cars = FilterCar.new(slots).filter_cars('vehicle_number', 'vehicle_color', color)

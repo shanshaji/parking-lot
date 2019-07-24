@@ -1,21 +1,14 @@
 #!/usr/bin/env ruby
 require_relative './../src/parking_space'
 class ParkingLot
-
+	def initialize
+		@parking_space = nil
+	end
     def get_input
 	  if (ARGV.length == 0)
 	  	input = ""
-	  	latest_parking_lot = nil
-	  	while input!= "exit"
-	     input = gets.chomp
-	     sliced_input = input.split(/\s/)
-	     command = sliced_input[0]
-	     no_of_slots = sliced_input[1]
-	     if command == 'create_parking_lot'
-	      latest_parking_lot = ParkingSpace.new(no_of_slots)
-	  	 else
-	  	  latest_parking_lot.send(command, *([sliced_input[1], sliced_input[2]].compact))
-	  	 end
+	  	while (input = gets.chomp) != 'exit'
+	     create(input)
 	 	end
 	  else
 	    begin
@@ -31,19 +24,24 @@ class ParkingLot
 	  	end
 	  end
 	end
-
 	def process_commands(input)
-	  latest_parking_lot = nil
 	  input.split("\n").each do |input|
-	    sliced_input = input.split(/\s/)
-	    command = sliced_input[0]
-	    if  command == 'create_parking_lot'
-	      no_of_slots = sliced_input[1]
-	      latest_parking_lot = ParkingSpace.new(no_of_slots)
-	    else
-	      latest_parking_lot.send(command, *([sliced_input[1], sliced_input[2]].compact))
-	    end
+	    create(input)
 	  end
 	end
+
+	def create input
+		unless input == ""
+			sliced_input = input.split(/\s/)
+		    command = sliced_input[0]
+		    if  command == 'create_parking_lot'
+		      no_of_slots = sliced_input[1]
+		      @parking_space = ParkingSpace.new(no_of_slots)
+		    else
+		      @parking_space.send(command, *([sliced_input[1], sliced_input[2]].compact))
+		    end
+		end
+	end
+
 end
 ParkingLot.new.get_input

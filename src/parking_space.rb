@@ -1,11 +1,11 @@
 
-require_relative './slots'
-require_relative './park'
-require_relative './find_free_slot'
-require_relative './unpark'
-require_relative './print_status'
-require_relative './find_car_by_color'
-require_relative './find_car_by_number'
+require_relative './entities/slots'
+require_relative './actions/park'
+require_relative './finders/find_free_slot'
+require_relative './actions/unpark'
+require_relative './actions/print_status'
+require_relative './finders/find_car_by_color'
+require_relative './finders/find_car_by_number'
 class ParkingSpace
 
   attr_accessor :slots
